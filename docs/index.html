@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Excavation Risk Intelligence - Demo</title>
+<style>
+  :root { color-scheme: light dark; --fg:#1f2937; --bg:#f8fafc; --card:#fff;
+           --muted:#6b7280; --line:#e5e7eb; --accent:#2563EB; }
+  @media (prefers-color-scheme: dark) {
+    :root { --fg:#e5e7eb; --bg:#0f172a; --card:#111827; --muted:#9ca3af;
+             --line:#1f2937; }
+  }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--fg); background:var(--bg); line-height:1.55; }
+  .wrap { max-width:820px; margin:0 auto; padding:48px 24px 64px; }
+  .eyebrow { font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--accent); font-weight:700; }
+  h1 { font-size:34px; margin:6px 0 10px; letter-spacing:-.01em; }
+  .lede { font-size:18px; color:var(--fg); }
+  .muted { color:var(--muted); }
+  .banner { background:#FEF3C7; border:1px solid #F59E0B; color:#92400E;
+    padding:12px 16px; border-radius:10px; font-size:13px; font-weight:600;
+    margin:22px 0; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px;
+    padding:22px; margin:20px 0; }
+  .btns { display:flex; gap:12px; flex-wrap:wrap; margin:24px 0 8px; }
+  .btn { display:inline-block; background:var(--accent); color:#fff;
+    padding:12px 22px; border-radius:10px; font-weight:700; text-decoration:none;
+    font-size:15px; }
+  .btn.ghost { background:transparent; color:var(--accent);
+    border:1.5px solid var(--accent); }
+  ul { padding-left:20px; } li { margin:6px 0; }
+  .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:14px; }
+  .pill { text-align:center; padding:12px; border-radius:10px; color:#fff;
+    font-weight:700; font-size:13px; }
+  code { font-family:ui-monospace,Menlo,monospace; font-size:13px; }
+  footer { margin-top:40px; color:var(--muted); font-size:12px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Excavation Risk Intelligence</div>
+  <h1>Excavation risk, ticket by ticket</h1>
+  <p class="lede">A live map that rates every planned excavation by how likely
+  it is to hit an underground gas pipe, and how serious the impact would be if
+  it did. This demonstration uses simulated data, not real customer
+  information.</p>
+
+  <div class="banner">SYNTHETIC DEMO DATA - illustrative only. No real tickets, excavators, pipe, or utility. Geometry is public OpenStreetMap; all risk values are fabricated.</div>
+
+  <div class="btns">
+    <a class="btn" href="./map.html">Open the interactive map</a>
+    
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">What you are looking at</h3>
+    <ul>
+      <li>A synthetic distribution network for Columbus, Ohio: mains
+      following the street grid, service lines branching to buildings, drawn
+      in neutral gray. Pipe lights up only inside a dig area, coloured by
+      that pipe segment's <b>own vulnerability</b> - how likely a dig is to
+      damage it, from its material, age, coating and diameter (green = newer
+      or more robust, red = most vulnerable); how much its loss would matter
+      is carried by the ticket colour and popup. Click any pipe for the
+      breakdown.</li>
+      <li>One synthetic day of excavation tickets, each flagged
+      <span style="color:#DC2626;font-weight:700">High</span> /
+      <span style="color:#F59E0B;font-weight:700">Moderate</span> /
+      <span style="color:#16A34A;font-weight:700">Low</span> priority.</li>
+      <li>Click any ticket to see the two headline indicators and the eight
+      driver pills - excavator history, pipe vulnerability, work activity,
+      locate quality, service disruption, critical facilities, business
+      district, and transmission - each with a plain-language reason.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top:0">How the demo data is made</h3>
+    <p class="muted">Street and building geometry is real, public
+    OpenStreetMap data. Everything else - pipe material, vintage, diameter,
+    vulnerability, tickets, excavators, and risk scores - is generated from
+    published industry references (PHMSA distribution-system statistics, the
+    Common Ground Alliance DIRT damage reports) and clearly-labelled
+    engineering defaults. No proprietary utility data is used anywhere.</p>
+  </div>
+
+  <footer>
+    Synthetic demonstration &middot; Columbus, Ohio &middot;
+    generated 2026-07-13. Not affiliated with, and containing no data
+    from, any specific utility.
+  </footer>
+</div>
+</body>
+</html>
